@@ -12,3 +12,11 @@ churn_df.head()
 churn_df = churn_df[['tenure', 'age', 'address', 'income', 'ed', 'employ', 'equip',   'callcard', 'wireless','churn']]
 churn_df['churn'] = churn_df['churn'].astype('int')
 churn_df.head()
+
+# seprate x and y
+X = np.asarray(churn_df[['tenure', 'age', 'address', 'income', 'ed', 'employ', 'equip']])
+y = np.asarray(churn_df['churn'])
+
+# pre-process
+from sklearn import preprocessing
+X = preprocessing.StandardScaler().fit(X).transform(X)
