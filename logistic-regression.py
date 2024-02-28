@@ -20,3 +20,9 @@ y = np.asarray(churn_df['churn'])
 # pre-process
 from sklearn import preprocessing
 X = preprocessing.StandardScaler().fit(X).transform(X)
+
+# train-test dataset
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=4)
+print ('Train set:', X_train.shape,  y_train.shape)
+print ('Test set:', X_test.shape,  y_test.shape)
