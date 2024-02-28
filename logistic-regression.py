@@ -82,3 +82,12 @@ np.set_printoptions(precision=2)
 # Plot non-normalized confusion matrix
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=['churn=1','churn=0'],normalize= False,  title='Confusion matrix')
+
+# evaluation
+from sklearn.metrics import jaccard_score
+jaccard_score(y_test, yhat,pos_label=0)
+
+print(classification_report(y_test, yhat))
+
+from sklearn.metrics import log_loss
+log_loss(y_test, yhat_prob)
